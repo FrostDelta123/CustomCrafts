@@ -1,0 +1,14 @@
+name: CustomCrafts
+version: 1.1
+main: ru.frostdelta.customcrafts.CustomCrafts
+authors: [FrostDelta123]
+commands:
+  craftgui:
+    permission: customcrafts.craftgui
+    permission-message: У вас нет прав!
+  craftall:
+    permission: customcrfats.craftall
+    permission-message: У вас нет прав!
+  craftsection:
+    permission: customcrafts.craftsection
+    permission-message: У вас нет прав!

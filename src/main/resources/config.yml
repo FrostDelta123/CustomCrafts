@@ -1,0 +1,76 @@
+
+url: 'jdbc:mysql://localhost:3306/test'
+username: 'root'
+password: 'test'
+
+messages:
+  no-ready-items: '&cНет готовых предметов!'
+  type-items-amount: '&aВведите нужное количество в чат!'
+  no-resources: '&cУ вас недостаточно ресурсов!'
+  craft-started: '&aКрафт успешно начат!'
+  time: '&3Время крафта:'
+  craft-successful: '&2Крафт прошёл успешно!'
+  craft-failed: '&4Неудачная попытка крафта!'
+  lore: 'НЕ ГОТОВ!'
+
+sections:
+  testsec:
+    name: 'First секция'
+    material: CHEST
+    items:
+      test:
+        material: BEDROCK
+        name: 'Супер-бедрок'
+        enchantment:
+          - OXYGEN:4
+          - DAMAGE_ALL:1
+        lore:
+          - Сундук 3шт
+          - Земля 2шт
+          - Камень 1шт
+        level: 3
+        time: 30
+        chance: 10
+        crafting:
+          - CHEST:3
+          - DIRT:2
+          - STONE:1
+
+  second:
+    name: 'Вторая секция'
+    material: DIRT
+    items:
+      item1:
+        material: CHEST
+        name: 'Сундук с чарами'
+        enchantment:
+          - DAMAGE_ALL:2
+          - OXYGEN:3
+        lore:
+          - Сундук 5шт
+          - Земля 3шт
+          - Камень 6шт
+        level: 2
+        time: 5
+        chance: 50
+        crafting:
+          - CHEST:5
+          - DIRT:3
+          - STONE:6
+      item2:
+        material: STONE
+        name: 'Просто камень'
+        enchantment:
+          - OXYGEN:4
+          - DAMAGE_ALL:1
+        lore:
+          - Сундук 3шт
+          - Земля 2шт
+          - Камень 1шт
+        level: 1
+        time: 5
+        chance: 50
+        crafting:
+          - CHEST:3
+          - DIRT:2
+          - STONE:1
