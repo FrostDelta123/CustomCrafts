@@ -2,11 +2,12 @@ package ru.frostdelta.customcrafts.gui;
 
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
-public class ReadyItemsGUI {
+public class ReadyItemsGUI implements InventoryHolder {
 
     public static Inventory readyMenu(List<ItemStack> items) {
 
@@ -18,7 +19,7 @@ public class ReadyItemsGUI {
             }
         }
 
-        Inventory inv = Bukkit.createInventory(new ReadyItemsHolder(), slots, "Готовые предметы");
+        Inventory inv = Bukkit.createInventory(new ReadyItemsGUI(), slots, "Готовые предметы");
 
         for (ItemStack stack : items){
             inv.setItem(inv.firstEmpty(), stack);
@@ -27,4 +28,8 @@ public class ReadyItemsGUI {
         return inv;
     }
 
+    @Override
+    public Inventory getInventory() {
+        return null;
+    }
 }

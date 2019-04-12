@@ -5,6 +5,7 @@ import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import ru.frostdelta.customcrafts.CraftingItem;
@@ -13,7 +14,7 @@ import ru.frostdelta.customcrafts.Utils;
 import java.util.Map;
 import java.util.Set;
 
-public class CraftGUI {
+public class CraftGUI implements InventoryHolder {
 
     public static Inventory craftMenu(ConfigurationSection section) {
 
@@ -25,7 +26,7 @@ public class CraftGUI {
             }
         }
 
-        Inventory inv = Bukkit.createInventory(new CraftMenuHolder(), slots, "CraftMenu");
+        Inventory inv = Bukkit.createInventory(new CraftGUI(), slots, "CraftMenu");
         Set<String> sections = section.getKeys(false);
         for (String sec : sections) {
             ConfigurationSection section1 = section.getConfigurationSection(sec);
@@ -51,4 +52,13 @@ public class CraftGUI {
         return inv;
     }
 
+    /**
+     * Get the object's inventory.
+     *
+     * @return The inventory.
+     */
+    @Override
+    public Inventory getInventory() {
+        return null;
+    }
 }

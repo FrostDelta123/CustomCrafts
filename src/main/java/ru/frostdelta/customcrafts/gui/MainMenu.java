@@ -4,13 +4,14 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import ru.frostdelta.customcrafts.Utils;
 
 import java.util.Set;
 
-public class MainMenu {
+public class MainMenu implements InventoryHolder {
 
 
     public static Inventory mainMenu(Set<String> sections) {
@@ -24,7 +25,7 @@ public class MainMenu {
             }
         }
 
-        Inventory inv = Bukkit.createInventory(new MainMenuHolder(), slots, "MainMenu");
+        Inventory inv = Bukkit.createInventory(new MainMenu(), slots, "MainMenu");
         int x = 0;
 
         for (String section : sections) {
@@ -44,4 +45,8 @@ public class MainMenu {
         return inv;
     }
 
+    @Override
+    public Inventory getInventory() {
+        return null;
+    }
 }

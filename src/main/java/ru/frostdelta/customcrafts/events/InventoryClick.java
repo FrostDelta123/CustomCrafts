@@ -25,7 +25,7 @@ public class InventoryClick implements Listener {
     public void click(InventoryClickEvent event){
 
         if(event.getSlotType() != InventoryType.SlotType.OUTSIDE && event.getSlotType() == InventoryType.SlotType.CONTAINER) {
-            if(event.getInventory().getHolder() instanceof ReadyItemsHolder && !event.getCurrentItem().getType().equals(Material.AIR)){
+            if(event.getInventory().getHolder() instanceof ReadyItemsGUI && !event.getCurrentItem().getType().equals(Material.AIR)){
 
                 Player player = ((Player) event.getWhoClicked());
                 ItemStack item = event.getCurrentItem();
@@ -41,7 +41,7 @@ public class InventoryClick implements Listener {
 
                 event.setCancelled(true);
             }
-            if(event.getInventory().getHolder() instanceof CraftMenuHolder && !event.getCurrentItem().getType().equals(Material.AIR)){
+            if(event.getInventory().getHolder() instanceof CraftGUI && !event.getCurrentItem().getType().equals(Material.AIR)){
                 CraftingItem item = Utils.getAllCrafts().get(event.getCurrentItem());
 
                 Utils.getCraftInProgress().put((Player)event.getWhoClicked(), item);
@@ -51,7 +51,7 @@ public class InventoryClick implements Listener {
                 event.setCancelled(true);
             }
 
-            if(event.getInventory().getHolder() instanceof ConfirmMenuHolder && !event.getCurrentItem().getType().equals(Material.AIR)){
+            if(event.getInventory().getHolder() instanceof ConfirmMenu && !event.getCurrentItem().getType().equals(Material.AIR)){
                 CraftingItem item = Utils.getCraftInProgress().get(((Player) event.getWhoClicked()));
 
                 if(event.getCurrentItem().hasItemMeta() && event.getCurrentItem().getItemMeta().getDisplayName().equals("Принять") && event.getSlot() == event.getInventory().getSize()-1){
@@ -83,7 +83,7 @@ public class InventoryClick implements Listener {
                 event.setCancelled(true);
             }
 
-            if(event.getInventory().getHolder() instanceof MainMenuHolder && !event.getCurrentItem().getType().equals(Material.AIR)){
+            if(event.getInventory().getHolder() instanceof MainMenu && !event.getCurrentItem().getType().equals(Material.AIR)){
                 ConfigurationSection section = Utils.getCfg().getConfigurationSection("sections." + Utils.getSectionByid().get(event.getSlot()).getName() + ".items");
                 Player player = ((Player) event.getWhoClicked());
                 for(String string : section.getKeys(false)) {

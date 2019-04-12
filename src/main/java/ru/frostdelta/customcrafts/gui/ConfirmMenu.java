@@ -3,13 +3,14 @@ package ru.frostdelta.customcrafts.gui;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import ru.frostdelta.customcrafts.Utils;
 
 import java.util.List;
 
-public class ConfirmMenu {
+public class ConfirmMenu implements InventoryHolder {
 
     public static Inventory confirmMenu(List<String> items, Integer amount) {
 
@@ -21,7 +22,7 @@ public class ConfirmMenu {
             }
         }
 
-        Inventory inv = Bukkit.createInventory(new ConfirmMenuHolder(), slots, "Требуемые ресурсы");
+        Inventory inv = Bukkit.createInventory(new ConfirmMenu(), slots, "Требуемые ресурсы");
 
         for (ItemStack stack : Utils.warp(items)){
             stack.setAmount(stack.getAmount() * amount);
@@ -37,4 +38,8 @@ public class ConfirmMenu {
         return inv;
     }
 
+    @Override
+    public Inventory getInventory() {
+        return null;
+    }
 }
